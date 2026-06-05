@@ -1,74 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Finding your nearest office...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body style="font-family: Arial; text-align:center; padding:40px;">
-
-<h2>Finding your nearest office...</h2>
-<p>Please wait a moment.</p>
-
-<script>
-async function redirectUser() {
-
-  try {
-
-    // Gets approximate location from IP (no permission popup)
-    const response = await fetch("https://ipapi.co/json/");
-    const data = await response.json();
-
-    const city = data.city;
-
-    console.log("Detected city:", city);
-
-    // ---- CITY ROUTING LOGIC ----
-
-    if (city === "Gloucester") {
+    // NORTH SHORE / GLOUCESTER
+    if (
+      city === "Gloucester" ||
+      city === "Rockport" ||
+      city === "Essex"
+    ) {
       window.location.href = "/gloucester.html";
     }
 
-    else if (city === "Lawrence") {
+    // LAWRENCE AREA
+    else if (
+      city === "Lawrence" ||
+      city === "Methuen" ||
+      city === "Andover"
+    ) {
       window.location.href = "/lawrence.html";
     }
 
-    else if (city === "Lynn") {
+    // LYNN AREA
+    else if (
+      city === "Lynn" ||
+      city === "Saugus" ||
+      city === "Nahant"
+    ) {
       window.location.href = "/lynn.html";
     }
 
-    else if (city === "Chelmsford") {
+    // CHELMSFORD AREA
+    else if (
+      city === "Chelmsford" ||
+      city === "Lowell"
+    ) {
       window.location.href = "/chelmsford.html";
     }
 
-    else if (city === "Acton") {
+    // ACTON / METROWEST
+    else if (
+      city === "Acton" ||
+      city === "Concord" ||
+      city === "Maynard"
+    ) {
       window.location.href = "/acton.html";
     }
 
-    else if (city === "Salem") {
+    // SALEM AREA
+    else if (
+      city === "Salem" ||
+      city === "Peabody" ||
+      city === "Beverly"
+    ) {
       window.location.href = "/salem.html";
     }
 
-    // fallback if city not recognized
+    // fallback
     else {
-      window.location.href = "/gloucester.html";
+      window.location.href = "/salem.html";
     }
-
-  }
-
-  catch (error) {
-
-    console.log("Error:", error);
-
-    // fallback if anything breaks
-    window.location.href = "/gloucester.html";
-
-  }
-
-}
-
-redirectUser();
-</script>
-
-</body>
-</html>
