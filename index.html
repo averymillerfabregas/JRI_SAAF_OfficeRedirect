@@ -20,66 +20,66 @@ async function redirectUser() {
     const response = await fetch("https://ipapi.co/json/");
     const data = await response.json();
 
-    const city = data.city;
+    const city = data.city?.trim().toLowerCase();
 
     console.log("Detected city:", city);
 
     // NORTH SHORE / GLOUCESTER
     if (
-      city === "Gloucester" ||
-      city === "Rockport" ||
-      city === "Essex"
+      city === "gloucester" ||
+      city === "rockport" ||
+      city === "essex"
     ) {
       window.location.href = "/gloucester.html";
     }
 
     // LAWRENCE AREA
     else if (
-      city === "Lawrence" ||
-      city === "Methuen" ||
-      city === "Andover"
+      city === "lawrence" ||
+      city === "methuen" ||
+      city === "andover"
     ) {
       window.location.href = "/lawrence.html";
     }
 
     // LYNN AREA
     else if (
-      city === "Lynn" ||
-      city === "Saugus" ||
-      city === "Nahant"
+      city === "lynn" ||
+      city === "saugus" ||
+      city === "nahant"
     ) {
       window.location.href = "/lynn.html";
     }
 
     // CHELMSFORD AREA
     else if (
-      city === "Chelmsford" ||
-      city === "Lowell"
+      city === "chelmsford" ||
+      city === "lowell"
     ) {
       window.location.href = "/chelmsford.html";
     }
 
     // ACTON / METROWEST
     else if (
-      city === "Acton" ||
-      city === "Concord" ||
-      city === "Maynard"
+      city === "acton" ||
+      city === "concord" ||
+      city === "maynard"
     ) {
       window.location.href = "/acton.html";
     }
 
     // SALEM AREA
     else if (
-      city === "Salem" ||
-      city === "Peabody" ||
-      city === "Beverly"
+      city === "salem" ||
+      city === "peabody" ||
+      city === "beverly"
     ) {
       window.location.href = "/salem.html";
     }
 
     // fallback
     else {
-      window.location.href = "/salem.html";
+      window.location.href = "/choose-city.html";
     }
 
   }
@@ -95,7 +95,7 @@ async function redirectUser() {
 
 }
 
-redirectUser();
+window.addEventListener("DOMContentLoaded", redirectUser);
 
 </script>
 
